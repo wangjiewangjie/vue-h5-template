@@ -4,7 +4,7 @@ import router from "./router";
 import store from "./store";
 import wx from "weixin-jsapi";
 import * as FastClick from "fastclick";
-import "./styles/ress.css";
+import "./styles/reset.css";
 import * as api from "@/api/api";
 
 Vue.config.productionTip = false;
