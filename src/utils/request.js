@@ -7,7 +7,7 @@ const service = axios.create({
   // 它可以通过设置一个 `baseURL` 便于为 axios 实例的方法传递相对 URL
   baseURL: process.env.NODE_ENV === "production" ? "" : "",
   // `timeout` 指定请求超时的毫秒数(0 表示无超时时间)
-  // 如果请求话费了超过 `timeout` 的时间，请求将被中断
+  // 如果请求时间超过 `timeout` 的时间，请求将被中断
   timeout: 5000,
   // 'proxy' 定义代理服务器的主机名称和端口
   // `auth` 表示 HTTP 基础验证应当用于连接代理，并提供凭据

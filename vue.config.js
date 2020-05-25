@@ -43,7 +43,7 @@ module.exports = {
         }
       }
     */
-    config.plugins.delete('prefetch')
+    config.plugins.delete("prefetch");
     if (process.env.NODE_ENV === "production") {
       /* 生产环境注入cdn */
       config.plugin("html").tap(args => {
@@ -56,8 +56,7 @@ module.exports = {
     loaderOptions: {
       // 给 scss-loader 传递选项
       scss: {
-        // @/ 是 src/ 的别名
-        // 所以这里假设你有 `src/var.sass` 这个文件
+        // 引入scss全局变量
         data: `@import "~@/styles/_var.scss";`
       }
     }
