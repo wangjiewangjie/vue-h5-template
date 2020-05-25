@@ -57,7 +57,7 @@ module.exports = {
       // 给 scss-loader 传递选项
       scss: {
         // 引入scss全局变量
-        data: `@import "~@/styles/_var.scss";`
+        prependData: `@import "~@/styles/_var.scss";`
       }
     }
   },

@@ -20,7 +20,7 @@
     </li>
 
     <li>
-      <router-link to="/order">
+      <router-link to="/">
         <div class="tabbar-icon">
           <i
             class="tabbar-sprite"
@@ -41,7 +41,7 @@
     </li>
 
     <li>
-      <router-link to="/usercenter">
+      <router-link to="/">
         <div class="tabbar-icon">
           <i
             class="tabbar-sprite"
