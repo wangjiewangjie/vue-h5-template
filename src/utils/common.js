@@ -8,7 +8,7 @@ const timeFormat = (timeStamp, formats) => {
   let hour = formatDigit(date.getHours());
   let minute = formatDigit(date.getMinutes());
   let second = formatDigit(date.getSeconds());
-  return formats.replace(/yyyy|MM|dd|hh|mm|ss/g, function (matches) {
+  return formats.replace(/yyyy|MM|dd|hh|mm|ss/g, function(matches) {
     return {
       yyyy: year,
       MM: month,
@@ -16,7 +16,7 @@ const timeFormat = (timeStamp, formats) => {
       hh: hour,
       mm: minute,
       ss: second
-    } [matches];
+    }[matches];
   });
   // 小于10补0
   function formatDigit(n) {
@@ -64,10 +64,4 @@ const removeCookie = name => {
   setCookie(name, 1, -1);
 };
 
-export {
-  timeFormat,
-  getWindonHref,
-  setCookie,
-  getCookie,
-  removeCookie
-};
+export { timeFormat, getWindonHref, setCookie, getCookie, removeCookie };
