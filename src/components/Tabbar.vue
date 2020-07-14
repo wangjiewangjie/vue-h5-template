@@ -93,7 +93,7 @@
     }
   }
   .tabbar-text-enter {
-    // color: $primary-1;
+    color: $primary-1;
   }
 }
 
