@@ -1,17 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Android 禁止屏幕旋转 -->
+  <meta name="screen-orientation" content="portrait">
+  <!-- 关闭ios电话号码识别 -->
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <style>
+    .skeleton .swiper,
+    .img,
+    p {
+      /* 以下代码实现背景动画效果 */
+      animation: loading 1.4s ease infinite;
+      -webkit-animation: loading 1.4s ease infinite;
+      background-image: -webkit-gradient(linear, left top, right top, color-stop(25%, #f0f0f0), color-stop(37%, #e3e3e3), color-stop(63%, #f0f0f0));
+      background-image: -o-linear-gradient(left, #f0f0f0 25%, #e3e3e3 37%, #f0f0f0 63%);
+      background-image: linear-gradient(90deg, #f0f0f0 25%, #e3e3e3 37%, #f0f0f0 63%);
+      background-size: 400% 100%
+    }
+
+    .skeleton .swiper {
+      width: 100%;
+      height: 150px;
+    }
+
+    .skeleton ul,
+    li {
+      padding: 0;
+      margin: 0;
+      list-style: none
+    }
+
+    .skeleton li {
+      display: flex;
+      margin-top: 20px;
+    }
+
+    .skeleton .img {
+      width: 80px;
+      height: 80px;
+    }
+
+    .skeleton p {
+      margin: 0 0 15px 10px;
+      width: 150px;
+      height: 10px;
+    }
+
+    .skeleton p:first-child {
+      width: 200px;
+    }
+
+    @-webkit-keyframes loading {
+      0% {
+        background-position: 100% 50%
+      }
+
+      to {
+        background-position: 0 50%
+      }
+    }
+
+    @keyframes loading {
+      0% {
+        background-position: 100% 50%
+      }
+
+      to {
+        background-position: 0 50%
+      }
+    }
+  </style>
+  <title>vue-h5-template</title>
+  <!-- 使用CDN的CSS文件 -->
+  <% for (var i in htmlWebpackPlugin.options.cdn && htmlWebpackPlugin.options.cdn.css) { %>
+  <link href="<%= htmlWebpackPlugin.options.cdn.css[i] %>" rel="preload" as="style">
+  <link href="<%= htmlWebpackPlugin.options.cdn.css[i] %>" rel="stylesheet">
+  <% } %>
+  <!-- 使用CDN的JS文件 -->
+  <% for (var i in htmlWebpackPlugin.options.cdn && htmlWebpackPlugin.options.cdn.js) { %>
+  <link href="<%= htmlWebpackPlugin.options.cdn.js[i] %>" rel="preload" as="script">
+  <% } %>
+</head>
+
+<body>
+  <noscript>
+    <strong>本页面需要浏览器支持（启用）JavaScript</strong>
+  </noscript>
+  <div id="app">
+    <div class="skeleton">
+      <div class="swiper"></div>
+      <ul>
+        <li>
+          <div class="img"></div>
+          <div>
+            <p></p>
+            <p></p>
+          </div>
+        </li>
+        <li>
+          <div class="img"></div>
+          <div>
+            <p></p>
+            <p></p>
+          </div>
+        </li>
+        <li>
+          <div class="img"></div>
+          <div>
+            <p></p>
+            <p></p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- built files will be auto injected -->
+  <% for (var i in htmlWebpackPlugin.options.cdn && htmlWebpackPlugin.options.cdn.js) { %>
+  <script src="<%= htmlWebpackPlugin.options.cdn.js[i] %>"></script>
+  <% } %>
+</body>
+
 </html>
