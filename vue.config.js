@@ -1,13 +1,14 @@
 const CompressionWebpackPlugin = require("compression-webpack-plugin");
+
 const productionGzipExtensions = ["js", "css"];
+
 const cdn = {
   css: [],
   js: ["https://cdn.bootcss.com/vue-router/3.0.1/vue-router.min.js"]
 };
 
 const path = require('path')
-
-function resolve (dir) {
+const resolve = (dir) => {
   return path.join(__dirname, dir)
 }
 
@@ -70,7 +71,7 @@ module.exports = {
       })
     ],
     /* 修改webpack config, 使其不打包externals下的资源 public/index.html 添加cdn */
-    externals: {
+    externals: process.env.NODE_ENV === 'development' ? {} : {
       "vue-router": "VueRouter"
     }
   },
